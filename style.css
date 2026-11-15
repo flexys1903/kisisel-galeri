@@ -1,25 +1,34 @@
-/* --- 25 FARKLI TEMA RENGI --- */
-:root { --bg: #0f0f0f; --card: #1a1a1a; --text: #f1f1f1; --muted: #9a9a9a; --accent: #3b82f6; --border: #2c2c2c; }
-[data-theme="dark"] { --bg: #0f0f0f; --card: #1a1a1a; --text: #f1f1f1; --muted: #9a9a9a; --accent: #3b82f6; --border: #2c2c2c; }
-[data-theme="light"] { --bg: #f4f4f5; --card: #ffffff; --text: #18181b; --muted: #71717a; --accent: #2563eb; --border: #e4e4e7; }
-[data-theme="bjk"] { --bg: #000000; --card: #121212; --text: #ffffff; --muted: #b0b0b0; --accent: #ffffff; --border: #333333; }
+/* --- PROREDESIGN: Modern & Profesyonel Stil --- */
+:root { 
+  --bg: #090a0f; 
+  --card: #13151f; 
+  --text: #f8fafc; 
+  --muted: #94a3b8; 
+  --accent: #38bdf8; 
+  --border: #1e293b; 
+  --radius: 16px;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] { --bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #64748b; --accent: #0284c7; --border: #e2e8f0; --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+[data-theme="bjk"] { --bg: #000000; --card: #111111; --text: #ffffff; --muted: #a3a3a3; --accent: #ffffff; --border: #262626; --shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05); }
 [data-theme="navy"] { --bg: #0a192f; --card: #112240; --text: #ccd6f6; --muted: #8892b0; --accent: #64ffda; --border: #233554; }
-[data-theme="red"] { --bg: #1a0505; --card: #2b0a0a; --text: #fpc; --muted: #d1a1a1; --accent: #ef4444; --border: #451a1a; }
-[data-theme="green"] { --bg: #051a0b; --card: #0a2b12; --text: #f1f1f1; --muted: #a1d1a8; --accent: #22c55e; --border: #1a4522; }
-[data-theme="purple"] { --bg: #12051a; --card: #1e0a2b; --text: #f1f1f1; --muted: #d1a1d8; --accent: #a855f7; --border: #351a45; }
-[data-theme="orange"] { --bg: #1a1005; --card: #2b1c0a; --text: #f1f1f1; --muted: #d1b8a1; --accent: #f97316; --border: #452c1a; }
-[data-theme="pink"] { --bg: #1a0512; --card: #2b0a1e; --text: #f1f1f1; --muted: #d1a1c2; --accent: #ec4899; --border: #451a35; }
-[data-theme="teal"] { --bg: #051a1a; --card: #0a2b2b; --text: #f1f1f1; --muted: #a1d1d1; --accent: #14b8a6; --border: #1a4545; }
-[data-theme="yellow"] { --bg: #1a1805; --card: #2b280a; --text: #f1f1f1; --muted: #d1cca1; --accent: #eab308; --border: #45401a; }
-[data-theme="cyan"] { --bg: #05151a; --card: #0a222b; --text: #f1f1f1; --muted: #a1c8d1; --accent: #06b6d4; --border: #1a3845; }
-[data-theme="emerald"] { --bg: #031a10; --card: #062b1a; --text: #f1f1f1; --muted: #a1d1bc; --accent: #10b981; --border: #0f452d; }
-[data-theme="indigo"] { --bg: #0d0a1a; --card: #15102b; --text: #f1f1f1; --muted: #b8a1d1; --accent: #6366f1; --border: #271a45; }
-[data-theme="rose"] { --bg: #1a050d; --card: #2b0a15; --text: #f1f1f1; --muted: #d1a1b4; --accent: #f43f5e; --border: #451a2a; }
-[data-theme="amber"] { --bg: #1a1205; --card: #2b1f0a; --text: #f1f1f1; --muted: #d1c0a1; --accent: #f59e0b; --border: #45331a; }
-[data-theme="lime"] { --bg: #121a05; --card: #1f2b0a; --text: #f1f1f1; --muted: #c4d1a1; --accent: #84cc16; --border: #33451a; }
-[data-theme="violet"] { --bg: #0f051a; --card: #190a2b; --text: #f1f1f1; --muted: #c2a1d1; --accent: #8b5cf6; --border: #2c1a45; }
-[data-theme="sky"] { --bg: #05141a; --card: #0a212b; --text: #f1f1f1; --muted: #a1c5d1; --accent: #0ea5e9; --border: #1a3745; }
-[data-theme="slate"] { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --muted: #94a3b8; --accent: #38bdf8; --border: #334155; }
+[data-theme="red"] { --bg: #1a0505; --card: #2b0a0a; --text: #fff5f5; --muted: #d1a1a1; --accent: #ef4444; --border: #451a1a; }
+[data-theme="green"] { --bg: #051a0b; --card: #0a2b12; --text: #f5fff8; --muted: #a1d1a8; --accent: #22c55e; --border: #1a4522; }
+[data-theme="purple"] { --bg: #12051a; --card: #1e0a2b; --text: #fdf5ff; --muted: #d1a1d8; --accent: #a855f7; --border: #351a45; }
+[data-theme="orange"] { --bg: #1a1005; --card: #2b1c0a; --text: #fffaf5; --muted: #d1b8a1; --accent: #f97316; --border: #452c1a; }
+[data-theme="pink"] { --bg: #1a0512; --card: #2b0a1e; --text: #fff5fc; --muted: #d1a1c2; --accent: #ec4899; --border: #451a35; }
+[data-theme="teal"] { --bg: #051a1a; --card: #0a2b2b; --text: #f5ffff; --muted: #a1d1d1; --accent: #14b8a6; --border: #1a4545; }
+[data-theme="yellow"] { --bg: #1a1805; --card: #2b280a; --text: #fffef5; --muted: #d1cca1; --accent: #eab308; --border: #45401a; }
+[data-theme="cyan"] { --bg: #05151a; --card: #0a222b; --text: #f5fcff; --muted: #a1c8d1; --accent: #06b6d4; --border: #1a3845; }
+[data-theme="emerald"] { --bg: #031a10; --card: #062b1a; --text: #f5fffb; --muted: #a1d1bc; --accent: #10b981; --border: #0f452d; }
+[data-theme="indigo"] { --bg: #0d0a1a; --card: #15102b; --text: #f9f5ff; --muted: #b8a1d1; --accent: #6366f1; --border: #271a45; }
+[data-theme="rose"] { --bg: #1a050d; --card: #2b0a15; --text: #fff5f8; --muted: #d1a1b4; --accent: #f43f5e; --border: #451a2a; }
+[data-theme="amber"] { --bg: #1a1205; --card: #2b1f0a; --text: #fffcf5; --muted: #d1c0a1; --accent: #f59e0b; --border: #45331a; }
+[data-theme="lime"] { --bg: #121a05; --card: #1f2b0a; --text: #fcfff5; --muted: #c4d1a1; --accent: #84cc16; --border: #33451a; }
+[data-theme="violet"] { --bg: #0f051a; --card: #190a2b; --text: #faf5ff; --muted: #c2a1d1; --accent: #8b5cf6; --border: #2c1a45; }
+[data-theme="sky"] { --bg: #05141a; --card: #0a212b; --text: #f5fefc; --muted: #a1c5d1; --accent: #0ea5e9; --border: #1a3745; }
+[data-theme="slate"] { --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --muted: #94a3b8; --accent: #38bdf8; --border: #334155; }
 [data-theme="zinc"] { --bg: #09090b; --card: #18181b; --text: #fafafa; --muted: #a1a1aa; --accent: #71717a; --border: #27272a; }
 [data-theme="stone"] { --bg: #0c0a09; --card: #1c1917; --text: #fafaf9; --muted: #a8a29e; --accent: #78716c; --border: #292524; }
 [data-theme="coffee"] { --bg: #140d0a; --card: #221712; --text: #f5ebe0; --muted: #b0a295; --accent: #d4a373; --border: #382820; }
@@ -30,95 +39,118 @@
 [data-font="large"] { font-size: 19px; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-body { background: var(--bg); color: var(--text); transition: background 0.25s, color 0.25s; line-height: 1.6; }
+body { background: var(--bg); color: var(--text); transition: background 0.3s ease, color 0.3s ease; line-height: 1.6; }
 
-.navbar { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-.nav-container { max-width: 900px; margin: auto; padding: 0.8rem 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.logo { display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 700; }
-.logo img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+/* Navbar */
+.navbar { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+.nav-container { max-width: 900px; margin: auto; padding: 0.8rem 1.2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 12px; cursor: pointer; font-weight: 700; transition: opacity 0.2s; }
+.logo:hover { opacity: 0.85; }
+.logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
 
 .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
-.nav-btn { background: transparent; border: none; color: var(--muted); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+.nav-btn { background: transparent; border: none; color: var(--muted); padding: 7px 14px; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; }
 .nav-btn.active, .nav-btn:hover { background: var(--border); color: var(--text); }
 .special-1938 { border: 1px solid var(--border); }
 
-.container { max-width: 720px; margin: 1.5rem auto; padding: 0 1rem; }
-.profile-header { display: flex; align-items: center; gap: 1.5rem; padding: 1.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 1.5rem; }
-.profile-pic { width: 82px; height: 82px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
+.container { max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+
+/* Profil Kartı */
+.profile-header { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1.8rem; box-shadow: var(--shadow); }
+.profile-pic { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
+.profile-info h2 { font-size: 1.4rem; font-weight: 700; }
 .profile-info p { color: var(--muted); margin: 4px 0; }
+.post-count { font-size: 0.9rem; color: var(--text); font-weight: 500; }
 
 .tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content.active { display: block; animation: fadeIn 0.3s ease; }
 
-.post-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 1.5rem; overflow: hidden; }
-.post-header { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1rem; }
-.post-author { display: flex; align-items: center; gap: 10px; font-weight: 600; }
-.post-author img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
-.post-img { width: 100%; max-height: 620px; object-fit: cover; display: block; background: #000; }
-.post-body { padding: 0.9rem 1rem; }
-.post-actions { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
-.like-btn { background: none; border: none; color: var(--text); font-size: 1.35rem; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Instagram Tarzı Gönderi Kartı */
+.post-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1.8rem; overflow: hidden; box-shadow: var(--shadow); }
+.post-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; }
+.post-author { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+.post-author img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+.post-img { width: 100%; max-height: 650px; object-fit: cover; display: block; background: #000; }
+.post-body { padding: 1rem 1.2rem; }
+.post-actions { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+.like-btn { background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: transform 0.2s; }
+.like-btn:active { transform: scale(1.2); }
 .like-btn.liked i { color: #ef4444; }
-.post-caption { margin-bottom: 10px; }
-.post-date { font-size: 0.75rem; color: var(--muted); display: block; margin-bottom: 10px; }
+.post-caption { margin-bottom: 10px; font-size: 0.95rem; }
+.post-date { font-size: 0.75rem; color: var(--muted); display: block; margin-bottom: 12px; }
 
-.comments-box { border-top: 1px solid var(--border); padding-top: 8px; }
-.comment-item { font-size: 0.9rem; margin-bottom: 4px; }
-.comment-form { display: flex; gap: 6px; margin-top: 10px; }
-.comment-form input { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 8px; font-size: 0.85rem; }
+.comments-box { border-top: 1px solid var(--border); padding-top: 10px; }
+.comment-item { font-size: 0.9rem; margin-bottom: 6px; }
+.comment-form { display: flex; gap: 8px; margin-top: 12px; }
+.comment-form input { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; outline: none; }
+.comment-form input:focus { border-color: var(--accent); }
 .comment-form input.author-in { width: 30%; }
 .comment-form input.text-in { flex: 1; }
 
-.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.photo-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; cursor: pointer; }
+/* Galeri Izgara */
+.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.photo-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; cursor: pointer; transition: transform 0.2s, opacity 0.2s; }
+.photo-grid img:hover { transform: scale(1.02); opacity: 0.9; }
 
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem; margin-bottom: 1rem; }
-.formatted-text { white-space: pre-line; margin-top: 10px; color: var(--text); }
+/* Metin Sayfaları */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; margin-bottom: 1.2rem; box-shadow: var(--shadow); }
+.formatted-text { white-space: pre-line; margin-top: 12px; color: var(--text); }
 
-/* 1938 ÖZEL ARKA PLAN */
+/* 1938 Özel Bölüm */
 .ataturk-hero { 
   position: relative; 
-  padding: 2.5rem 1.5rem; 
-  border-radius: 14px; 
+  padding: 3rem 1.8rem; 
+  border-radius: var(--radius); 
   border: 1px solid var(--border); 
-  margin-bottom: 1.2rem; 
+  margin-bottom: 1.5rem; 
   overflow: hidden; 
-  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRHtdDy5-kBjw07oclkPZG8mwfWcdSt4X8_SAZdSCl56x_XxvUA') center/cover no-repeat; 
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRHtdDy5-kBjw07oclkPZG8mwfWcdSt4X8_SAZdSCl56x_XxvUA') center/cover no-repeat; 
   color: #fff; 
+  box-shadow: var(--shadow);
 }
-.ataturk-hero-content { position: relative; z-index: 2; max-width: 500px; }
-.ataturk-hero-content h1 { font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 8px; }
-.ataturk-hero-content .quote { font-style: italic; color: #f3f3f3; margin-bottom: 8px; font-size: 1.05rem; }
-.ataturk-grid ul { padding-left: 1.2rem; margin-top: 8px; }
-.ataturk-grid li, .ataturk-grid p { margin-bottom: 6px; }
+.ataturk-hero-content { position: relative; z-index: 2; max-width: 550px; }
+.ataturk-hero-content h1 { font-size: 2.4rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 800; }
+.ataturk-hero-content .quote { font-style: italic; color: #f3f3f3; margin-bottom: 10px; font-size: 1.1rem; line-height: 1.5; }
+.ataturk-grid ul { padding-left: 1.2rem; margin-top: 10px; }
+.ataturk-grid li, .ataturk-grid p { margin-bottom: 8px; }
 
+.section-subtitle { margin: 1.5rem 0 1rem; font-size: 1.2rem; font-weight: 700; }
 .ataturk-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1rem; }
-.ataturk-photos img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; filter: grayscale(100%); border: 1px solid var(--border); }
+.ataturk-photos img { width: 100%; height: 210px; object-fit: cover; border-radius: 10px; filter: grayscale(100%); border: 1px solid var(--border); transition: filter 0.3s; }
+.ataturk-photos img:hover { filter: grayscale(0%); }
 
-.btn-primary { background: var(--accent); color: var(--bg); border: none; padding: 8px 14px; border-radius: 8px; font-weight: 600; cursor: pointer; }
-[data-theme="dark"] .btn-primary { color: #fff; }
-.btn-secondary { background: var(--border); color: var(--text); border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; }
-.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text); width: 36px; height: 36px; border-radius: 8px; cursor: pointer; }
-.full { width: 100%; margin-top: 10px; }
+/* Butonlar ve Modallar */
+.btn-primary { background: var(--accent); color: var(--bg); border: none; padding: 9px 16px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+.btn-primary:hover { opacity: 0.9; }
+[data-theme="dark"] .btn-primary { color: #000; }
+.btn-secondary { background: var(--border); color: var(--text); border: none; padding: 9px 16px; border-radius: 10px; cursor: pointer; }
+.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text); width: 38px; height: 38px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.full { width: 100%; margin-top: 12px; }
 .hidden { display: none !important; }
 
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 999; padding: 1rem; }
-.modal-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; width: 100%; max-width: 440px; }
-.modal-box.large { max-width: 560px; max-height: 90vh; overflow-y: auto; }
-.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.modal-box input, .modal-box textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 9px; border-radius: 8px; margin: 6px 0 12px; }
-.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 999; padding: 1rem; }
+.modal-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; width: 100%; max-width: 440px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+.modal-box.large { max-width: 580px; max-height: 90vh; overflow-y: auto; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+.modal-box input, .modal-box textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 10px; margin: 6px 0 14px; outline: none; }
+.modal-box input:focus, .modal-box textarea:focus { border-color: var(--accent); }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; }
 
-.admin-tabs { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
-.admin-tabs button { flex: 1; padding: 8px; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
-.admin-tabs button.active { background: var(--accent); color: #000; font-weight: 700; }
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 1.2rem; flex-wrap: wrap; }
+.admin-tabs button { flex: 1; padding: 9px; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+.admin-tabs button.active { background: var(--accent); color: #000; }
 
-.logs-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; max-height: 250px; overflow-y: auto; font-size: 0.85rem; }
-.log-item { padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+.logs-box { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px; max-height: 250px; overflow-y: auto; font-size: 0.85rem; }
+.log-item { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
 
-/* 25 Tema Seçeneği İçin Izgara Tasarımı */
-.theme-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; max-height: 220px; overflow-y: auto; margin: 8px 0 14px; padding-right: 4px; }
-.theme-chip { padding: 8px 6px; border-radius: 6px; border: 1px solid var(--border); cursor: pointer; font-weight: 600; font-size: 0.75rem; text-align: center; }
+.theme-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-height: 240px; overflow-y: auto; margin: 10px 0 16px; padding-right: 4px; }
+.theme-chip { padding: 9px 8px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-weight: 600; font-size: 0.75rem; text-align: center; transition: transform 0.1s; }
+.theme-chip:hover { transform: scale(1.03); }
 
-.font-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0 14px; }
-.font-options button { padding: 8px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-weight: 600; background: var(--bg); color: var(--text); font-size: 0.85rem; }
+.font-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 16px; }
+.font-options button { padding: 9px; border-radius: 10px; border: 1px solid var(--border); cursor: pointer; font-weight: 600; background: var(--bg); color: var(--text); font-size: 0.85rem; }
