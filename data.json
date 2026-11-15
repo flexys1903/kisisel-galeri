@@ -1,10 +1,15 @@
 {
+  "admin": {
+    "ip": "66.249.67.65",
+    "password": "utku1903"
+  },
   "profile": {
     "username": "utku",
-    "bio": "Kişisel fotoğraf günlüğüm ve projelerim.",
+    "bio": "Kişisel fotoğraf günlüğüm.",
     "avatar": "https://via.placeholder.com/150/111111/FFFFFF?text=PP",
-    "about": "Burayı yönetici panelinden kendi bilgilerinle doldurabilirsin.",
-    "purpose": "Bu platformu kurma amacımı yönetici girişi yaparak düzenleyeceğim."
+    "about": "Hakkımda kısmını buradan düzenleyebilirsin.",
+    "purpose": "Amacım kısmını buradan düzenleyebilirsin."
   },
-  "posts": []
+  "posts": [],
+  "visitors": []
 }
