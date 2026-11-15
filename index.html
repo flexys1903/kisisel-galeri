@@ -103,13 +103,6 @@
           <p>• "Bütün ümidim gençliktedir."</p>
         </div>
       </div>
-
-      <h3 class="section-subtitle">Anı Fotoğrafları</h3>
-      <div class="ataturk-photos">
-        <img src="https://images.unsplash.com/photo-1590642152062-89b4b08cb0a1?auto=format&fit=crop&w=600&q=80" alt="Atatürk">
-        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" alt="Anıtkabir">
-        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Türk Bayrağı">
-      </div>
     </section>
   </main>
 
@@ -171,7 +164,7 @@
     </div>
   </div>
 
-  <!-- MODAL: Ayarlar -->
+  <!-- MODAL: Ayarlar (Bej ve Gri Dahil Temalar) -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-box">
       <div class="modal-header">
@@ -179,11 +172,13 @@
         <button class="icon-btn" onclick="closeModal('settings-modal')"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="setting-group">
-        <label>25 Farklı Tema Seçeneği</label>
+        <label>Tema Seçenekleri</label>
         <div class="theme-options">
           <button onclick="setTheme('dark')" class="theme-chip" style="background:#0f0f0f;color:#fff;">Koyu Siyah</button>
           <button onclick="setTheme('light')" class="theme-chip" style="background:#f4f4f5;color:#18181b;">Açık Beyaz</button>
           <button onclick="setTheme('bjk')" class="theme-chip" style="background:#000;color:#fff;border:1px solid #fff;">Siyah-Beyaz</button>
+          <button onclick="setTheme('gri')" class="theme-chip" style="background:#374151;color:#f3f4f6;">Gri</button>
+          <button onclick="setTheme('bej')" class="theme-chip" style="background:#eae4d9;color:#3e3830;">Bej</button>
           <button onclick="setTheme('navy')" class="theme-chip" style="background:#0a192f;color:#64ffda;">Gece Mavisi</button>
           <button onclick="setTheme('red')" class="theme-chip" style="background:#2b0a0a;color:#ef4444;">Kırmızı</button>
           <button onclick="setTheme('green')" class="theme-chip" style="background:#0a2b12;color:#22c55e;">Yeşil</button>
@@ -203,7 +198,6 @@
           <button onclick="setTheme('slate')" class="theme-chip" style="background:#1e293b;color:#38bdf8;">Slate</button>
           <button onclick="setTheme('zinc')" class="theme-chip" style="background:#18181b;color:#fafafa;">Zinc</button>
           <button onclick="setTheme('stone')" class="theme-chip" style="background:#1c1917;color:#fafaf9;">Stone</button>
-          <button onclick="setTheme('coffee')" class="theme-chip" style="background:#221712;color:#d4a373;">Kahve</button>
           <button onclick="setTheme('cyberpunk')" class="theme-chip" style="background:#1c0a2e;color:#00ffcc;">Cyberpunk</button>
         </div>
       </div>
