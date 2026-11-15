@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark" data-font="medium">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kişisel Galeri & 193∞</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Üst Menü -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo" onclick="switchTab('home')">
+        <img id="nav-avatar" src="" alt="PP">
+        <span id="nav-username">@utku</span>
+      </div>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="home" onclick="switchTab('home')">Ana Sayfa</button>
+        <button class="nav-btn" data-tab="gallery" onclick="switchTab('gallery')">Resimler</button>
+        <button class="nav-btn" data-tab="about" onclick="switchTab('about')">Hakkımda</button>
+        <button class="nav-btn" data-tab="purpose" onclick="switchTab('purpose')">Amacım</button>
+        <button class="nav-btn special-1938" data-tab="ataturk" onclick="switchTab('ataturk')">193∞</button>
+      </nav>
+      <div class="nav-actions">
+        <button id="admin-panel-btn" class="btn-primary hidden" onclick="openModal('admin-modal')">
+          <i class="fa-solid fa-plus"></i> Yönet
+        </button>
+        <button class="icon-btn" onclick="openModal('settings-modal')" title="Ayarlar">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Profil Üst Bilgisi -->
+    <section class="profile-header">
+      <img id="profile-avatar" src="" alt="Profil Fotoğrafı" class="profile-pic">
+      <div class="profile-info">
+        <h2 id="profile-name">@utku</h2>
+        <p id="profile-bio">Yükleniyor...</p>
+        <span class="post-count"><strong id="total-posts">0</strong> gönderi</span>
+      </div>
+    </section>
+
+    <!-- 1. ANA SAYFA -->
+    <section id="tab-home" class="tab-content active">
+      <div id="feed-container" class="feed-list"></div>
+    </section>
+
+    <!-- 2. RESİMLER -->
+    <section id="tab-gallery" class="tab-content">
+      <div id="gallery-grid" class="photo-grid"></div>
+    </section>
+
+    <!-- 3. HAKKIMDA -->
+    <section id="tab-about" class="tab-content">
+      <div class="card text-page">
+        <h2><i class="fa-solid fa-user"></i> Hakkımda</h2>
+        <p id="about-text" class="formatted-text"></p>
+      </div>
+    </section>
+
+    <!-- 4. AMACIM -->
+    <section id="tab-purpose" class="tab-content">
+      <div class="card text-page">
+        <h2><i class="fa-solid fa-bullseye"></i> Amacım</h2>
+        <p id="purpose-text" class="formatted-text"></p>
+      </div>
+    </section>
+
+    <!-- 5. 193∞ ATATÜRK ÖZEL BÖLÜMÜ -->
+    <section id="tab-ataturk" class="tab-content">
+      <div class="ataturk-hero">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Ataturk1930s.jpg" alt="Mustafa Kemal Atatürk">
+        <div class="ataturk-hero-text">
+          <h1>1881 - 193∞</h1>
+          <p class="quote">"Benim naçiz vücudum elbet bir gün toprak olacaktır, ancak Türkiye Cumhuriyeti ilelebet payidar kalacaktır."</p>
+          <span>— Gazi Mustafa Kemal Atatürk</span>
+        </div>
+      </div>
+
+      <div class="ataturk-grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-landmark"></i> Hayatı ve Liderliği</h3>
+          <p>1881 yılında Selanik'te doğan Mustafa Kemal Atatürk; Çanakkale'den Sakarya'ya, Büyük Taarruz'dan Cumhuriyet'in ilanına kadar Türk milletinin bağımsızlık mücadelesine önderlik etmiş başkomutan ve devlet kurucusudur.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-star"></i> Atatürk İlkeleri</h3>
+          <ul>
+            <li><strong>Cumhuriyetçilik:</strong> Egemenliğin kayıtsız şartsız millete ait olması.</li>
+            <li><strong>Milliyetçilik:</strong> Ortak tarih ve ülkü etrafında birlik bilinci.</li>
+            <li><strong>Halkçılık:</strong> Herkesin kanun önünde eşit olması.</li>
+            <li><strong>Devletçilik:</strong> Ekonomik kalkınmada devlet ve millet iş birliği.</li>
+            <li><strong>Laiklik:</strong> Din ve devlet işlerinin ayrılması, akıl ve bilimin rehberliği.</li>
+            <li><strong>İnkılapçılık:</strong> Çağdaş uygarlık seviyesinin üzerine çıkma hedefi.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-book-open"></i> Unutulmaz Sözleri</h3>
+          <p>• "Hayatta en hakiki mürşit ilimdir, fendir."</p>
+          <p>• "Yurtta sulh, cihanda sulh."</p>
+          <p>• "Bütün ümidim gençliktedir."</p>
+          <p>• "Eğitimdir ki, bir milleti ya özgür, bağımsız, şanlı, yüksek bir topluluk halinde yaşatır; ya da esaret ve sefalete terk eder."</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Atatürk Fotoğrafları</h3>
+      <div class="ataturk-photos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Mustafa_Kemal_Atat%C3%BCrk_1923.jpg/640px-Mustafa_Kemal_Atat%C3%BCrk_1923.jpg" alt="Atatürk 1923">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ataturk_in_Kocatepe.jpg/640px-Ataturk_in_Kocatepe.jpg" alt="Kocatepe">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Atat%C3%BCrk_ve_kara_tahta.jpg/640px-Ataturk_ve_kara_tahta.jpg" alt="Başöğretmen">
+      </div>
+    </section>
+  </main>
+
+  <!-- Gizli Yönetici Giriş Tetikleyicisi -->
+  <button class="secret-admin-trigger" onclick="openModal('login-modal')" title="Yönetici Girişi">
+    <i class="fa-solid fa-lock"></i>
+  </button>
+
+  <!-- MODAL 1: Yönetici Giriş Penceresi -->
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Yönetici Girişi</h3>
+      <p>GitHub Repo Bilgilerini ve Token'ını gir:</p>
+      <input type="text" id="repo-owner" placeholder="GitHub Kullanıcı Adın">
+      <input type="text" id="repo-name" placeholder="Repo Adın (örn: kisisel-galeri)">
+      <input type="password" id="github-token" placeholder="GitHub Personal Access Token (repo yetkili)">
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="verifyAdminToken()">Giriş Yap</button>
+        <button class="btn-secondary" onclick="closeModal('login-modal')">İptal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Yönetici Kontrol Paneli -->
+  <div id="admin-modal" class="modal hidden">
+    <div class="modal-box large">
+      <div class="modal-header">
+        <h3>Yönetici Paneli</h3>
+        <button class="icon-btn" onclick="closeModal('admin-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="active" onclick="switchAdminSubTab('new-post', this)">Yeni Resim Paylaş</button>
+        <button onclick="switchAdminSubTab('edit-profile', this)">Profil / Hakkımda / Amacım</button>
+      </div>
+
+      <!-- Yeni Post Ekleme -->
+      <div id="admin-new-post" class="admin-sub">
+        <label>Fotoğraf Seç:</label>
+        <input type="file" id="post-image-file" accept="image/*">
+        <label>Açıklama:</label>
+        <textarea id="post-caption" rows="3" placeholder="Fotoğraf altına açıklama yaz..."></textarea>
+        <button class="btn-primary full" id="upload-post-btn" onclick="submitPost()">GitHub'a Yükle ve Paylaş</button>
+      </div>
+
+      <!-- Profil & Sayfa Düzenleme -->
+      <div id="admin-edit-profile" class="admin-sub hidden">
+        <label>Yeni Profil Fotoğrafı (PP):</label>
+        <input type="file" id="pp-image-file" accept="image/*">
+        <label>Kullanıcı Adı:</label>
+        <input type="text" id="edit-username">
+        <label>Kısa Biyografi:</label>
+        <input type="text" id="edit-bio">
+        <label>Hakkımda Sayfası İçeriği:</label>
+        <textarea id="edit-about" rows="4"></textarea>
+        <label>Amacım Sayfası İçeriği:</label>
+        <textarea id="edit-purpose" rows="4"></textarea>
+        <button class="btn-primary full" id="save-profile-btn" onclick="saveProfile()">Bilgileri Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Ayarlar -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Görünüm Ayarları</h3>
+        <button class="icon-btn" onclick="closeModal('settings-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="setting-group">
+        <label>Site Tema Rengi</label>
+        <div class="theme-options">
+          <button onclick="setTheme('dark')" class="theme-chip" style="background:#0f0f0f;color:#fff;">Koyu Siyah</button>
+          <button onclick="setTheme('bjk')" class="theme-chip" style="background:#000;color:#fff;border:2px solid #fff;">Siyah-Beyaz</button>
+          <button onclick="setTheme('navy')" class="theme-chip" style="background:#0a192f;color:#64ffda;">Gece Mavisi</button>
+          <button onclick="setTheme('light')" class="theme-chip" style="background:#f5f5f5;color:#111;">Açık Tema</button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <label>Metin Büyüklüğü</label>
+        <div class="font-options">
+          <button onclick="setFontSize('small')">Küçük</button>
+          <button onclick="setFontSize('medium')">Normal</button>
+          <button onclick="setFontSize('large')">Büyük</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
