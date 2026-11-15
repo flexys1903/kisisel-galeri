@@ -1,11 +1,8 @@
 {
-  "admin": {
-    "ip": "66.249.67.65",
-    "password": "utku1903"
-  },
+  "adminIp": "66.249.67.65",
   "profile": {
     "username": "utku",
-    "bio": "Kişisel fotoğraf günlüğüm.",
+    "bio": "Kişisel fotoğraf günlüğüm ve projelerim.",
     "avatar": "https://via.placeholder.com/150/111111/FFFFFF?text=PP",
     "about": "Hakkımda kısmını buradan düzenleyebilirsin.",
     "purpose": "Amacım kısmını buradan düzenleyebilirsin."
