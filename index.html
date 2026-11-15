@@ -70,11 +70,10 @@
       </div>
     </section>
 
-    <!-- 5. 193∞ ATATÜRK ÖZEL -->
+    <!-- 5. 193∞ ÖZEL BÖLÜM -->
     <section id="tab-ataturk" class="tab-content">
       <div class="ataturk-hero">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Ataturk1930s.jpg" alt="Mustafa Kemal Atatürk">
-        <div class="ataturk-hero-text">
+        <div class="ataturk-hero-content">
           <h1>1881 - 193∞</h1>
           <p class="quote">"Benim naçiz vücudum elbet bir gün toprak olacaktır, ancak Türkiye Cumhuriyeti ilelebet payidar kalacaktır."</p>
           <span>— Gazi Mustafa Kemal Atatürk</span>
@@ -104,10 +103,17 @@
           <p>• "Bütün ümidim gençliktedir."</p>
         </div>
       </div>
+
+      <h3 class="section-subtitle">Anı Fotoğrafları</h3>
+      <div class="ataturk-photos">
+        <img src="https://images.unsplash.com/photo-1590642152062-89b4b08cb0a1?auto=format&fit=crop&w=600&q=80" alt="Atatürk">
+        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" alt="Anıtkabir">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Türk Bayrağı">
+      </div>
     </section>
   </main>
 
-  <!-- MODAL: IP Doğrulandı - Yönetici Onay Penceresi -->
+  <!-- MODAL: IP Doğrulandı - Yönetici Onay -->
   <div id="ip-prompt-modal" class="modal hidden">
     <div class="modal-box">
       <h3>Yönetici IP Adresi Algılandı</h3>
@@ -142,9 +148,9 @@
         <button class="btn-primary full" id="upload-post-btn" onclick="submitPost()">Paylaş</button>
       </div>
 
-      <!-- Profil Düzenle -->
+      <!-- Profil Düzenle (PP Değiştirme Alanı) -->
       <div id="admin-edit-profile" class="admin-sub hidden">
-        <label>Profil Fotoğrafı (PP) URL veya Yükle:</label>
+        <label>Profil Fotoğrafı (PP) Yükle:</label>
         <input type="file" id="pp-image-file" accept="image/*">
         <label>Kullanıcı Adı:</label>
         <input type="text" id="edit-username">
@@ -165,7 +171,7 @@
     </div>
   </div>
 
-  <!-- MODAL: Ayarlar -->
+  <!-- MODAL: Ayarlar (25 Farklı Tema Seçeneği) -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-box">
       <div class="modal-header">
@@ -173,12 +179,32 @@
         <button class="icon-btn" onclick="closeModal('settings-modal')"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="setting-group">
-        <label>Tema Rengi</label>
+        <label>25 Farklı Tema Seçeneği</label>
         <div class="theme-options">
           <button onclick="setTheme('dark')" class="theme-chip" style="background:#0f0f0f;color:#fff;">Koyu Siyah</button>
-          <button onclick="setTheme('bjk')" class="theme-chip" style="background:#000;color:#fff;border:2px solid #fff;">Siyah-Beyaz</button>
+          <button onclick="setTheme('light')" class="theme-chip" style="background:#f4f4f5;color:#18181b;">Açık Beyaz</button>
+          <button onclick="setTheme('bjk')" class="theme-chip" style="background:#000;color:#fff;border:1px solid #fff;">Siyah-Beyaz</button>
           <button onclick="setTheme('navy')" class="theme-chip" style="background:#0a192f;color:#64ffda;">Gece Mavisi</button>
-          <button onclick="setTheme('light')" class="theme-chip" style="background:#f5f5f5;color:#111;">Açık Tema</button>
+          <button onclick="setTheme('red')" class="theme-chip" style="background:#2b0a0a;color:#ef4444;">Kırmızı</button>
+          <button onclick="setTheme('green')" class="theme-chip" style="background:#0a2b12;color:#22c55e;">Yeşil</button>
+          <button onclick="setTheme('purple')" class="theme-chip" style="background:#1e0a2b;color:#a855f7;">Mor</button>
+          <button onclick="setTheme('orange')" class="theme-chip" style="background:#2b1c0a;color:#f97316;">Turuncu</button>
+          <button onclick="setTheme('pink')" class="theme-chip" style="background:#2b0a1e;color:#ec4899;">Pembe</button>
+          <button onclick="setTheme('teal')" class="theme-chip" style="background:#0a2b2b;color:#14b8a6;">Camgöbeği</button>
+          <button onclick="setTheme('yellow')" class="theme-chip" style="background:#2b280a;color:#eab308;">Sarı</button>
+          <button onclick="setTheme('cyan')" class="theme-chip" style="background:#0a222b;color:#06b6d4;">Cyan</button>
+          <button onclick="setTheme('emerald')" class="theme-chip" style="background:#062b1a;color:#10b981;">Zümrüt</button>
+          <button onclick="setTheme('indigo')" class="theme-chip" style="background:#15102b;color:#6366f1;">İndigo</button>
+          <button onclick="setTheme('rose')" class="theme-chip" style="background:#2b0a15;color:#f43f5e;">Gül</button>
+          <button onclick="setTheme('amber')" class="theme-chip" style="background:#2b1f0a;color:#f59e0b;">Kehribar</button>
+          <button onclick="setTheme('lime')" class="theme-chip" style="background:#1f2b0a;color:#84cc16;">Lime</button>
+          <button onclick="setTheme('violet')" class="theme-chip" style="background:#190a2b;color:#8b5cf6;">Menekşe</button>
+          <button onclick="setTheme('sky')" class="theme-chip" style="background:#0a212b;color:#0ea5e9;">Gökyüzü</button>
+          <button onclick="setTheme('slate')" class="theme-chip" style="background:#1e293b;color:#38bdf8;">Slate</button>
+          <button onclick="setTheme('zinc')" class="theme-chip" style="background:#18181b;color:#fafafa;">Zinc</button>
+          <button onclick="setTheme('stone')" class="theme-chip" style="background:#1c1917;color:#fafaf9;">Stone</button>
+          <button onclick="setTheme('coffee')" class="theme-chip" style="background:#221712;color:#d4a373;">Kahve</button>
+          <button onclick="setTheme('cyberpunk')" class="theme-chip" style="background:#1c0a2e;color:#00ffcc;">Cyberpunk</button>
         </div>
       </div>
       <div class="setting-group">
