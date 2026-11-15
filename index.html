@@ -25,17 +25,16 @@
       </nav>
       <div class="nav-actions">
         <button id="admin-panel-btn" class="btn-primary hidden" onclick="openModal('admin-modal')">
-          <i class="fa-solid fa-plus"></i> Yönet
+          <i class="fa-solid fa-gear"></i> Yönetici Paneli
         </button>
         <button class="icon-btn" onclick="openModal('settings-modal')" title="Ayarlar">
-          <i class="fa-solid fa-gear"></i>
+          <i class="fa-solid fa-sliders"></i>
         </button>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- Profil Üst Bilgisi -->
     <section class="profile-header">
       <img id="profile-avatar" src="" alt="Profil Fotoğrafı" class="profile-pic">
       <div class="profile-info">
@@ -71,7 +70,7 @@
       </div>
     </section>
 
-    <!-- 5. 193∞ ATATÜRK ÖZEL BÖLÜMÜ -->
+    <!-- 5. 193∞ ATATÜRK ÖZEL -->
     <section id="tab-ataturk" class="tab-content">
       <div class="ataturk-hero">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Ataturk1930s.jpg" alt="Mustafa Kemal Atatürk">
@@ -103,40 +102,24 @@
           <p>• "Hayatta en hakiki mürşit ilimdir, fendir."</p>
           <p>• "Yurtta sulh, cihanda sulh."</p>
           <p>• "Bütün ümidim gençliktedir."</p>
-          <p>• "Eğitimdir ki, bir milleti ya özgür, bağımsız, şanlı, yüksek bir topluluk halinde yaşatır; ya da esaret ve sefalete terk eder."</p>
         </div>
-      </div>
-
-      <h3 class="section-subtitle">Atatürk Fotoğrafları</h3>
-      <div class="ataturk-photos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Mustafa_Kemal_Atat%C3%BCrk_1923.jpg/640px-Mustafa_Kemal_Atat%C3%BCrk_1923.jpg" alt="Atatürk 1923">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ataturk_in_Kocatepe.jpg/640px-Ataturk_in_Kocatepe.jpg" alt="Kocatepe">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Atat%C3%BCrk_ve_kara_tahta.jpg/640px-Ataturk_ve_kara_tahta.jpg" alt="Başöğretmen">
       </div>
     </section>
   </main>
 
-  <!-- Gizli Yönetici Giriş Tetikleyicisi -->
-  <button class="secret-admin-trigger" onclick="openModal('login-modal')" title="Yönetici Girişi">
-    <i class="fa-solid fa-lock"></i>
-  </button>
-
-  <!-- MODAL 1: Yönetici Giriş Penceresi -->
-  <div id="login-modal" class="modal hidden">
+  <!-- MODAL: IP Doğrulandı - Yönetici Onay Penceresi -->
+  <div id="ip-prompt-modal" class="modal hidden">
     <div class="modal-box">
-      <h3>Yönetici Girişi</h3>
-      <p>GitHub Repo Bilgilerini ve Token'ını gir:</p>
-      <input type="text" id="repo-owner" placeholder="GitHub Kullanıcı Adın">
-      <input type="text" id="repo-name" placeholder="Repo Adın (örn: kisisel-galeri)">
-      
+      <h3>Yönetici IP Adresi Algılandı</h3>
+      <p>Yönetici olarak devam edilsin mi?</p>
       <div class="modal-actions">
-        <button class="btn-primary" onclick="verifyAdminToken()">Giriş Yap</button>
-        <button class="btn-secondary" onclick="closeModal('login-modal')">İptal</button>
+        <button class="btn-primary" onclick="acceptAdmin()">Evet</button>
+        <button class="btn-secondary" onclick="closeModal('ip-prompt-modal')">Hayır</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 2: Yönetici Kontrol Paneli -->
+  <!-- MODAL: Yönetici Paneli -->
   <div id="admin-modal" class="modal hidden">
     <div class="modal-box large">
       <div class="modal-header">
@@ -145,46 +128,52 @@
       </div>
 
       <div class="admin-tabs">
-        <button class="active" onclick="switchAdminSubTab('new-post', this)">Yeni Resim Paylaş</button>
-        <button onclick="switchAdminSubTab('edit-profile', this)">Profil / Hakkımda / Amacım</button>
+        <button class="active" onclick="switchAdminSubTab('new-post', this)">Yeni Post</button>
+        <button onclick="switchAdminSubTab('edit-profile', this)">Profil & Metinler</button>
+        <button onclick="switchAdminSubTab('visitor-logs', this)">IP Logları</button>
       </div>
 
-      <!-- Yeni Post Ekleme -->
+      <!-- Yeni Post -->
       <div id="admin-new-post" class="admin-sub">
-        <label>Fotoğraf Seç:</label>
+        <label>Resim Seç:</label>
         <input type="file" id="post-image-file" accept="image/*">
         <label>Açıklama:</label>
-        <textarea id="post-caption" rows="3" placeholder="Fotoğraf altına açıklama yaz..."></textarea>
-        <button class="btn-primary full" id="upload-post-btn" onclick="submitPost()">GitHub'a Yükle ve Paylaş</button>
+        <textarea id="post-caption" rows="3" placeholder="Açıklama yaz..."></textarea>
+        <button class="btn-primary full" id="upload-post-btn" onclick="submitPost()">Paylaş</button>
       </div>
 
-      <!-- Profil & Sayfa Düzenleme -->
+      <!-- Profil Düzenle -->
       <div id="admin-edit-profile" class="admin-sub hidden">
-        <label>Yeni Profil Fotoğrafı (PP):</label>
+        <label>Profil Fotoğrafı (PP) URL veya Yükle:</label>
         <input type="file" id="pp-image-file" accept="image/*">
         <label>Kullanıcı Adı:</label>
         <input type="text" id="edit-username">
-        <label>Kısa Biyografi:</label>
+        <label>Biyografi:</label>
         <input type="text" id="edit-bio">
-        <label>Hakkımda Sayfası İçeriği:</label>
-        <textarea id="edit-about" rows="4"></textarea>
-        <label>Amacım Sayfası İçeriği:</label>
-        <textarea id="edit-purpose" rows="4"></textarea>
-        <button class="btn-primary full" id="save-profile-btn" onclick="saveProfile()">Bilgileri Kaydet</button>
+        <label>Hakkımda:</label>
+        <textarea id="edit-about" rows="3"></textarea>
+        <label>Amacım:</label>
+        <textarea id="edit-purpose" rows="3"></textarea>
+        <button class="btn-primary full" onclick="saveProfile()">Kaydet</button>
+      </div>
+
+      <!-- Ziyaretçi IP Logları -->
+      <div id="admin-visitor-logs" class="admin-sub hidden">
+        <h4>Siteye Giren Cihaz IP'leri</h4>
+        <div id="logs-container" class="logs-box">Yükleniyor...</div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 3: Ayarlar -->
+  <!-- MODAL: Ayarlar -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-box">
       <div class="modal-header">
         <h3>Görünüm Ayarları</h3>
         <button class="icon-btn" onclick="closeModal('settings-modal')"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      
       <div class="setting-group">
-        <label>Site Tema Rengi</label>
+        <label>Tema Rengi</label>
         <div class="theme-options">
           <button onclick="setTheme('dark')" class="theme-chip" style="background:#0f0f0f;color:#fff;">Koyu Siyah</button>
           <button onclick="setTheme('bjk')" class="theme-chip" style="background:#000;color:#fff;border:2px solid #fff;">Siyah-Beyaz</button>
@@ -192,7 +181,6 @@
           <button onclick="setTheme('light')" class="theme-chip" style="background:#f5f5f5;color:#111;">Açık Tema</button>
         </div>
       </div>
-
       <div class="setting-group">
         <label>Metin Büyüklüğü</label>
         <div class="font-options">
