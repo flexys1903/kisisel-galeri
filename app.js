@@ -146,21 +146,14 @@ function renderSite() {
   if (isAdmin) enableAdminUI();
 }
 
-// Resim Yükleme (ImgBB Ücretsiz API Entegrasyonu ile Hata Kesin Çözüm)
-async function uploadToImgBB(file) {
-  const formData = new FormData();
-  formData.append('image', file);
-  
-  // Ücretsiz açık ImgBB API anahtarı (Sitede anında resim linki üretir)
-  const res = await fetch('https://api.imgbb.com/1/upload?key=6d207e02bde9757696f8c856715eeccb', {
-    method: 'POST',
-    body: formData
+// Dosyayı Doğrudan Base64'e Çevirerek Kesin Yükleme (Sıfır Hata)
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
   });
-  const json = await res.json();
-  if (json.success) {
-    return json.data.url;
-  }
-  throw new Error('Resim yüklenemedi');
 }
 
 // Yeni Post Ekle
@@ -174,11 +167,11 @@ async function submitPost() {
   btn.textContent = 'Yükleniyor...';
 
   try {
-    const imageUrl = await uploadToImgBB(fileInput.files[0]);
+    const base64Image = await toBase64(fileInput.files[0]);
 
     siteData.posts.unshift({
       id: Date.now().toString(),
-      image: imageUrl,
+      image: base64Image,
       caption: caption || '',
       likes: 0,
       comments: [],
@@ -191,19 +184,19 @@ async function submitPost() {
     renderSite();
     alert('Post başarıyla paylaşıldı!');
   } catch (err) {
-    alert('Yükleme hatası oluştu.');
+    alert('Resim yüklenirken bir hata oluştu.');
   } finally {
     btn.disabled = false;
     btn.textContent = 'Paylaş';
   }
 }
 
-// Profil Kaydet (PP Yükleme Dahil)
+// Profil Kaydet (PP Değiştirme Dahil)
 async function saveProfile() {
   try {
     const ppFile = document.getElementById('pp-image-file').files[0];
     if (ppFile) {
-      siteData.profile.avatar = await uploadToImgBB(ppFile);
+      siteData.profile.avatar = await toBase64(ppFile);
     }
     siteData.profile.username = document.getElementById('edit-username').value;
     siteData.profile.bio = document.getElementById('edit-bio').value;
