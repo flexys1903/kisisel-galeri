@@ -33,7 +33,6 @@ async function fetchSiteData() {
   }
 }
 
-// IP Kontrolü ve Ziyaretçi Loglama
 async function checkUserIPAndLog() {
   try {
     const ipRes = await fetch('https://api.ipify.org?format=json');
@@ -48,7 +47,6 @@ async function checkUserIPAndLog() {
         siteData.visitors.unshift({ ip, date: timeNow });
       }
 
-      // Senkronizasyon: IP'n eşleşirse ve daha önce sorulmadıysa
       if (ip === siteData.adminIp && !isAdmin && !sessionStorage.getItem('ip_prompt_shown')) {
         sessionStorage.setItem('ip_prompt_shown', 'true');
         openModal('ip-prompt-modal');
@@ -148,7 +146,6 @@ function renderSite() {
   if (isAdmin) enableAdminUI();
 }
 
-// Yeni Post Ekle
 async function submitPost() {
   const fileInput = document.getElementById('post-image-file');
   const caption = document.getElementById('post-caption').value;
@@ -164,3 +161,88 @@ async function submitPost() {
     comments: [],
     date: new Date().toLocaleDateString('tr-TR')
   });
+
+  fileInput.value = '';
+  document.getElementById('post-caption').value = '';
+  closeModal('admin-modal');
+  renderSite();
+  alert('Post eklendi!');
+}
+
+async function saveProfile() {
+  const ppFile = document.getElementById('pp-image-file').files[0];
+  if (ppFile) {
+    siteData.profile.avatar = await toBase64(ppFile);
+  }
+  siteData.profile.username = document.getElementById('edit-username').value;
+  siteData.profile.bio = document.getElementById('edit-bio').value;
+  siteData.profile.about = document.getElementById('edit-about').value;
+  siteData.profile.purpose = document.getElementById('edit-purpose').value;
+
+  closeModal('admin-modal');
+  renderSite();
+  alert('Profil güncellendi!');
+}
+
+function deletePost(id) {
+  if (!confirm('Silmek istediğine emin misin?')) return;
+  siteData.posts = siteData.posts.filter(p => p.id !== id);
+  renderSite();
+}
+
+function toggleLike(postId) {
+  const alreadyLiked = likedPosts.includes(postId);
+  if (alreadyLiked) likedPosts = likedPosts.filter(id => id !== postId);
+  else likedPosts.push(postId);
+  localStorage.setItem('liked_posts', JSON.stringify(likedPosts));
+
+  const post = siteData.posts.find(p => p.id === postId);
+  if (post) {
+    post.likes = (post.likes || 0) + (alreadyLiked ? -1 : 1);
+    if (post.likes < 0) post.likes = 0;
+    renderSite();
+  }
+}
+
+function submitComment(e, postId) {
+  e.preventDefault();
+  const form = e.target;
+  const author = form.querySelector('.author-in').value || 'Ziyaretçi';
+  const text = form.querySelector('.text-in').value;
+
+  const post = siteData.posts.find(p => p.id === postId);
+  if (post) {
+    post.comments.push({ id: Date.now().toString(), author: author.slice(0, 25), text: text.slice(0, 300), date: new Date().toLocaleDateString('tr-TR') });
+    renderSite();
+  }
+}
+
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(`tab-${tabName}`).classList.add('active');
+  document.querySelector(`.nav-btn[data-tab="${tabName}"]`).classList.add('active');
+}
+
+function switchAdminSubTab(sub, btn) {
+  document.querySelectorAll('.admin-sub').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.admin-tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById(`admin-${sub}`).classList.remove('hidden');
+  btn.classList.add('active');
+}
+
+function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+  });
+}
+
+function escapeHtml(str) {
+  return (str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
