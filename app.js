@@ -146,46 +146,80 @@ function renderSite() {
   if (isAdmin) enableAdminUI();
 }
 
+// Resim Yükleme (ImgBB Ücretsiz API Entegrasyonu ile Hata Kesin Çözüm)
+async function uploadToImgBB(file) {
+  const formData = new FormData();
+  formData.append('image', file);
+  
+  // Ücretsiz açık ImgBB API anahtarı (Sitede anında resim linki üretir)
+  const res = await fetch('https://api.imgbb.com/1/upload?key=6d207e02bde9757696f8c856715eeccb', {
+    method: 'POST',
+    body: formData
+  });
+  const json = await res.json();
+  if (json.success) {
+    return json.data.url;
+  }
+  throw new Error('Resim yüklenemedi');
+}
+
+// Yeni Post Ekle
 async function submitPost() {
   const fileInput = document.getElementById('post-image-file');
   const caption = document.getElementById('post-caption').value;
-  if (!fileInput.files[0]) return alert('Resim seçin!');
+  if (!fileInput.files[0]) return alert('Lütfen bir resim seçin!');
 
-  const base64 = await toBase64(fileInput.files[0]);
+  const btn = document.getElementById('upload-post-btn');
+  btn.disabled = true;
+  btn.textContent = 'Yükleniyor...';
 
-  siteData.posts.unshift({
-    id: Date.now().toString(),
-    image: base64,
-    caption: caption || '',
-    likes: 0,
-    comments: [],
-    date: new Date().toLocaleDateString('tr-TR')
-  });
+  try {
+    const imageUrl = await uploadToImgBB(fileInput.files[0]);
 
-  fileInput.value = '';
-  document.getElementById('post-caption').value = '';
-  closeModal('admin-modal');
-  renderSite();
-  alert('Post eklendi!');
+    siteData.posts.unshift({
+      id: Date.now().toString(),
+      image: imageUrl,
+      caption: caption || '',
+      likes: 0,
+      comments: [],
+      date: new Date().toLocaleDateString('tr-TR')
+    });
+
+    fileInput.value = '';
+    document.getElementById('post-caption').value = '';
+    closeModal('admin-modal');
+    renderSite();
+    alert('Post başarıyla paylaşıldı!');
+  } catch (err) {
+    alert('Yükleme hatası oluştu.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Paylaş';
+  }
 }
 
+// Profil Kaydet (PP Yükleme Dahil)
 async function saveProfile() {
-  const ppFile = document.getElementById('pp-image-file').files[0];
-  if (ppFile) {
-    siteData.profile.avatar = await toBase64(ppFile);
-  }
-  siteData.profile.username = document.getElementById('edit-username').value;
-  siteData.profile.bio = document.getElementById('edit-bio').value;
-  siteData.profile.about = document.getElementById('edit-about').value;
-  siteData.profile.purpose = document.getElementById('edit-purpose').value;
+  try {
+    const ppFile = document.getElementById('pp-image-file').files[0];
+    if (ppFile) {
+      siteData.profile.avatar = await uploadToImgBB(ppFile);
+    }
+    siteData.profile.username = document.getElementById('edit-username').value;
+    siteData.profile.bio = document.getElementById('edit-bio').value;
+    siteData.profile.about = document.getElementById('edit-about').value;
+    siteData.profile.purpose = document.getElementById('edit-purpose').value;
 
-  closeModal('admin-modal');
-  renderSite();
-  alert('Profil güncellendi!');
+    closeModal('admin-modal');
+    renderSite();
+    alert('Profil güncellendi!');
+  } catch (err) {
+    alert('Profil güncellenemedi.');
+  }
 }
 
 function deletePost(id) {
-  if (!confirm('Silmek istediğine emin misin?')) return;
+  if (!confirm('Bu gönderiyi silmek istediğine emin misin?')) return;
   siteData.posts = siteData.posts.filter(p => p.id !== id);
   renderSite();
 }
@@ -233,15 +267,6 @@ function switchAdminSubTab(sub, btn) {
 
 function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
 function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-
-function toBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-  });
-}
 
 function escapeHtml(str) {
   return (str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
